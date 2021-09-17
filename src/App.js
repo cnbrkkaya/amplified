@@ -2,12 +2,29 @@ import { useEffect, useState } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
 import { createTodo } from './graphql/mutations'
 import { listTodos } from './graphql/queries'
+import {
+  AmplifyAuthenticator,
+  AmplifySignOut,
+  AmplifySignUp,
+  AmplifySignIn,
+} from '@aws-amplify/ui-react'
+import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components'
 
 const initialState = { name: '', description: '' }
 
 const App = () => {
   const [formState, setFormState] = useState(initialState)
   const [todos, setTodos] = useState([])
+  //Auth states
+  const [authState, setAuthState] = useState()
+  const [user, setUser] = useState()
+
+  useEffect(() => {
+    return onAuthUIStateChange((nextAuthState, authData) => {
+      setAuthState(nextAuthState)
+      setUser(authData)
+    })
+  }, [])
 
   useEffect(() => {
     fetchTodos()
@@ -39,8 +56,9 @@ const App = () => {
     }
   }
 
-  return (
+  return authState === AuthState.SignedIn && user ? (
     <div style={styles.container}>
+      <AmplifySignOut buttonText='Bye' />
       <h2>Amplify Todos</h2>
       <input
         onChange={(event) => setInput('name', event.target.value)}
@@ -64,6 +82,19 @@ const App = () => {
         </div>
       ))}
     </div>
+  ) : (
+    <AmplifyAuthenticator usernameAlias='email'>
+      <AmplifySignUp
+        slot='sign-up'
+        usernameAlias='email'
+        formFields={[
+          { type: 'username' },
+          { type: 'password' },
+          { type: 'email' },
+        ]}
+      />
+      <AmplifySignIn slot='sign-in' />
+    </AmplifyAuthenticator>
   )
 }
 
