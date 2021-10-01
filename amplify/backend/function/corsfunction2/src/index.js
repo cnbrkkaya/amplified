@@ -5,7 +5,7 @@ exports.handler = async (event) => {
 
     headers: {
       'Access-Control-Allow-Origin':
-        'https://fcu8gugsb0.execute-api.us-east-1.amazonaws.com/dev',
+        'https://master.d2wpvnzd012uwi.amplifyapp.com',
       'Access-Control-Allow-Headers': '*',
     },
     body: JSON.stringify('Hello from Lambda!'),
