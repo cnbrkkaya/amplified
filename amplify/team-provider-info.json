@@ -15,7 +15,7 @@
       "function": {
         "functionCors": {
           "deploymentBucketName": "amplify-cors-dev-122335-deployment",
-          "s3Key": "amplify-builds/functionCors-6a7a35334e4a32777952-build.zip"
+          "s3Key": "amplify-builds/functionCors-6a506d6e4f4a36715574-build.zip"
         }
       }
     }

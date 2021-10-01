@@ -17,10 +17,7 @@ app.use(awsServerlessExpressMiddleware.eventContext())
 
 // Enable CORS for all methods
 app.use(function (req, res, next) {
-  res.header(
-    'Access-Control-Allow-Origin',
-    'https://master.d2wpvnzd012uwi.amplifyapp.com'
-  )
+  res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', '*')
   next()
 })
