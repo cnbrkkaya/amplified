@@ -1,13 +1,14 @@
-import logo from './logo.svg'
+import { API } from 'aws-amplify'
 import './App.css'
 
 function App() {
   const sendRequest = async () => {
-    var URL = 'https://xjo2p0za8l.execute-api.us-east-1.amazonaws.com/dev/items'
+    var URL =
+      'https://xjo2p0za8l.execute-api.us-east-1.amazonaws.com/dev/products'
     var otherParams = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        name: 'canberk',
+        name: 'canberk-fetch',
       }),
       method: 'POST',
     }
@@ -23,10 +24,25 @@ function App() {
         window.alert(err)
       })
   }
+  const amplifyRequest = async () => {
+    API.post('apiCors', '/products', {
+      body: {
+        name: 'canberk-amplify',
+      },
+    })
+      .then((result) => {
+        this.todos = JSON.parse(result.body)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
   return (
     <div className='App'>
       <header className='App-header'>
-        <button onClick={sendRequest}>Click</button>
+        <button onClick={amplifyRequest}>AmplifyAPI</button>
+        <button onClick={sendRequest}>FetchAPI</button>
       </header>
     </div>
   )
