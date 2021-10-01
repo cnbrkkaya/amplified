@@ -1,0 +1,35 @@
+{
+  "paths": [
+    {
+      "name": "/items",
+      "lambdaFunction": "corsfunction2",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/items"
+    }
+  ],
+  "resourceName": "cors2",
+  "apiName": "cors2",
+  "functionArns": [
+    {
+      "lambdaFunction": "corsfunction2"
+    }
+  ],
+  "privacy": {
+    "auth": 0,
+    "unauth": 0,
+    "authRoleName": "amplify-cors-dev-122335-authRole",
+    "unAuthRoleName": "amplify-cors-dev-122335-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "corsfunction2",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}
