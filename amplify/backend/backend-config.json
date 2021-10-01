@@ -1,19 +1,19 @@
 {
   "function": {
-    "corsFunction": {
+    "functionCors": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "api": {
-    "corsApi": {
+    "apiCors": {
       "service": "API Gateway",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "corsFunction",
+          "resourceName": "functionCors",
           "attributes": [
             "Name",
             "Arn"

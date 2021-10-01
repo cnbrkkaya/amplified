@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "corsFunction",
+            "functionCors",
             {
               "Fn::Join": [
                 "",
                 [
-                  "corsFunction",
+                  "functionCors",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "corsLambdaRolee808b6ae",
+            "corsLambdaRole9c460ba4",
             {
               "Fn::Join": [
                 "",
                 [
-                  "corsLambdaRolee808b6ae",
+                  "corsLambdaRole9c460ba4",
                   "-",
                   {
                     "Ref": "env"

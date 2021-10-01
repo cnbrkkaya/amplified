@@ -1,19 +1,19 @@
 {
   "paths": [
     {
-      "name": "/items",
-      "lambdaFunction": "corsFunction",
+      "name": "/products",
+      "lambdaFunction": "functionCors",
       "privacy": {
         "open": true
       },
-      "policyResourceName": "/items"
+      "policyResourceName": "/products"
     }
   ],
-  "resourceName": "corsApi",
-  "apiName": "corsApi",
+  "resourceName": "apiCors",
+  "apiName": "apiCors",
   "functionArns": [
     {
-      "lambdaFunction": "corsFunction"
+      "lambdaFunction": "functionCors"
     }
   ],
   "privacy": {
@@ -25,7 +25,7 @@
   "dependsOn": [
     {
       "category": "function",
-      "resourceName": "corsFunction",
+      "resourceName": "functionCors",
       "attributes": [
         "Name",
         "Arn"

@@ -3,7 +3,7 @@ import './App.css'
 
 function App() {
   const sendRequest = async () => {
-    var URL = 'https://ae3xrmtxmk.execute-api.us-east-1.amazonaws.com/dev/item'
+    var URL = 'https://xjo2p0za8l.execute-api.us-east-1.amazonaws.com/dev/items'
     var otherParams = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
