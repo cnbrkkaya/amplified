@@ -38,8 +38,7 @@ function App() {
       })
   }
   const sendRequest2 = async () => {
-    var URL =
-      'https://xjo2p0za8l.execute-api.us-east-1.amazonaws.com/dev/products'
+    var URL = 'https://fcu8gugsb0.execute-api.us-east-1.amazonaws.com/dev/items'
     var otherParams = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -60,7 +59,7 @@ function App() {
       })
   }
   const amplifyRequest2 = async () => {
-    API.post('apiCors', '/products', {
+    API.post('cors2', '/items', {
       body: {
         name: 'canberk-amplify',
       },
